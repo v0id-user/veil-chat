@@ -1,0 +1,20 @@
+# Add colors for better visibility
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+echo "${YELLOW}🔍 Checking commit message format...${NC}"
+
+# Run commitlint with custom config
+if npx --no -- commitlint --edit ${1}; then
+    echo "${GREEN}✅ Commit message meets the requirements!${NC}"
+else
+    echo "${RED}❌ Commit message format is invalid!${NC}"
+    echo "${YELLOW}Please follow the conventional commit format:${NC}"
+    echo "  ${GREEN}type${NC}(${YELLOW}scope${NC}): ${NC}subject"
+    echo ""
+    echo "Types: feat, fix, docs, style, refactor, test, chore"
+    echo "Example: feat(auth): add login functionality"
+    exit 1
+fi
