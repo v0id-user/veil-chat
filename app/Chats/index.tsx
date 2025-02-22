@@ -1,6 +1,8 @@
 import SearchBar from '@/components/utils/SearchBar';
 import ThreeDots from '@/public/icons/dots-three-outline-vertical.svg';
 import UserPlus from '@/public/icons/user-plus.svg';
+import Tab from '@/components/utils/Tab';
+
 export default function Chats() {
   return (
     <div className="flex flex-col h-full p-12 border-l border-t border-b border-black bg-white">
@@ -12,6 +14,10 @@ export default function Chats() {
         </div>
       </div>
       <SearchBar placeholder="ابحث عن محادثة" className="mt-4" />
+      <div className="flex gap-2 mt-4">
+        <Tab label="المحادثات" selected={true} onClick={() => {}} />
+        <Tab label="الغير مقروءة" selected={false} onClick={() => {}} />
+      </div>
     </div>
   );
 }
