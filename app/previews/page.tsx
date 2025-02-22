@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import PSearchBar from './PSearchBar';
-
+import PTabs from './PTabs';
 export default function Previews() {
   const [selectedComponent, setSelectedComponent] = useState('searchBar');
 
@@ -9,6 +9,8 @@ export default function Previews() {
     switch (selectedComponent) {
       case 'searchBar':
         return <PSearchBar />;
+      case 'tabs':
+        return <PTabs />;
       default:
         return <div className="p-8">Select a component to preview</div>;
     }
@@ -31,6 +33,14 @@ export default function Previews() {
           }`}
         >
           SearchBar
+        </button>
+        <button
+          onClick={() => setSelectedComponent('tabs')}
+          className={`w-full text-left p-2 rounded ${
+            selectedComponent === 'tabs' ? 'bg-gray-200' : 'hover:bg-gray-200'
+          }`}
+        >
+          Tabs
         </button>
       </div>
 
