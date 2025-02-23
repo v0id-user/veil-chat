@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import PSearchBar from './PSearchBar';
 import PTabs from './PTabs';
+import PChatItem from './PChatItem';
 export default function Previews() {
   const [selectedComponent, setSelectedComponent] = useState('searchBar');
 
@@ -11,6 +12,8 @@ export default function Previews() {
         return <PSearchBar />;
       case 'tabs':
         return <PTabs />;
+      case 'chatItem':
+        return <PChatItem />;
       default:
         return <div className="p-8">Select a component to preview</div>;
     }
@@ -41,6 +44,14 @@ export default function Previews() {
           }`}
         >
           Tabs
+        </button>
+        <button
+          onClick={() => setSelectedComponent('chatItem')}
+          className={`w-full text-left p-2 rounded ${
+            selectedComponent === 'chatItem' ? 'bg-gray-200' : 'hover:bg-gray-200'
+          }`}
+        >
+          ChatItem
         </button>
       </div>
 
