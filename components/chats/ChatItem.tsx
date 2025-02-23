@@ -22,7 +22,7 @@ export default function ChatItem({
   const router = useRouter();
   return (
     <div
-      className="flex items-center gap-2"
+      className="flex items-center gap-4 p-4 hover:bg-gray-50 transition-colors cursor-pointer"
       onClick={() => {
         router.push(`/chats/${chatId}`);
       }}
@@ -30,17 +30,17 @@ export default function ChatItem({
       <Image
         src={avatarLink}
         alt={name}
-        className="w-10 h-10 rounded-full"
-        width={40}
-        height={40}
+        className="w-12 h-12 rounded-full"
+        width={48}
+        height={48}
       />
-      <div className="flex flex-col">
+      <div className="flex flex-col flex-1 gap-1">
         <h3 className="text-lg font-bold">{name}</h3>
         <p className="text-sm text-gray-500">{lastMessage}</p>
       </div>
-      <div className="flex flex-col items-end">
+      <div className="flex flex-col items-end gap-2">
         <p className="text-sm text-gray-500">{time}</p>
-        {unread && <div className="w-2 h-2 bg-[#DC0E11] rounded-full" />}
+        {unread && <div className="w-3 h-3 bg-[#DC0E11] rounded-full" />}
       </div>
     </div>
   );
