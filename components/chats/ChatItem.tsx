@@ -40,7 +40,7 @@ export default function ChatItem({
       </div>
       <div className="flex flex-col items-end">
         <p className="text-sm text-gray-500">{time}</p>
-        {unread && <div className="w-2 h-2 bg-blue-500 rounded-full" />}
+        {unread && <div className="w-2 h-2 bg-[#DC0E11] rounded-full" />}
       </div>
     </div>
   );
