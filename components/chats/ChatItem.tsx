@@ -22,7 +22,7 @@ export default function ChatItem({
   const router = useRouter();
   return (
     <div
-      className="flex items-center gap-4 p-4 hover:bg-gray-50 transition-colors cursor-pointer"
+      className="flex items-center gap-4 p-4 hover:bg-gray-50 transition-colors cursor-pointer border-b border-black border-opacity-10"
       onClick={() => {
         router.push(`/chats/${chatId}`);
       }}

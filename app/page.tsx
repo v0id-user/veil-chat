@@ -15,7 +15,6 @@ const ColorBanner = () => {
 const Chats = lazy(() => import('./Chats'));
 export default function Home() {
   const { selectedSection } = useSelectionStore();
-
   return (
     <main className="flex flex-col h-screen">
       <ColorBanner />
