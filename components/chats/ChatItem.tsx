@@ -2,33 +2,26 @@
 
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-interface ChatItemProps {
-  name: string;
-  avatarLink: string;
-  chatId: string;
-  lastMessage: string;
-  time: string;
-  unread: boolean;
-}
+import { Room } from '@/interfaces/chats';
 
 export default function ChatItem({
   name,
-  lastMessage,
-  time,
+  id,
+  participants,
   unread,
-  chatId,
-  avatarLink,
-}: ChatItemProps) {
+  lastMessage,
+  lastMessageAt,
+}: Room) {
   const router = useRouter();
   return (
     <div
       className="flex items-center gap-4 p-4 hover:bg-gray-50 transition-colors cursor-pointer border-b border-black border-opacity-10"
       onClick={() => {
-        router.push(`/chats/${chatId}`);
+        router.push(`/chats/${id}`);
       }}
     >
       <Image
-        src={avatarLink}
+        src={participants[0].avatarLink}
         alt={name}
         className="w-12 h-12 rounded-full"
         width={48}
@@ -36,10 +29,20 @@ export default function ChatItem({
       />
       <div className="flex flex-col flex-1 gap-1">
         <h3 className="text-lg font-bold">{name}</h3>
-        <p className="text-sm text-gray-500">{lastMessage}</p>
+        <p className="text-sm text-gray-500">
+          {lastMessage.content.length > 50
+            ? lastMessage.content.slice(0, 50) + '...'
+            : lastMessage.content}
+        </p>
       </div>
       <div className="flex flex-col items-end gap-2">
-        <p className="text-sm text-gray-500">{time}</p>
+        <p className="text-sm text-gray-500">
+          {lastMessageAt.toLocaleTimeString([], {
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true,
+          })}
+        </p>
         {unread && <div className="w-3 h-3 bg-[#DC0E11] rounded-full" />}
       </div>
     </div>

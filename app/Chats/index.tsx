@@ -7,50 +7,9 @@ import Link from 'next/link';
 import Lock from '@/public/icons/lock-16px.svg';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Trash2 } from 'lucide-react';
+import { fakeRooms } from '@/store/debug/fake';
 
 export default function Chats() {
-  const dummyChats = [
-    {
-      name: 'فهد العويطر',
-      lastMessage: 'مرحبا, كيف حالك؟',
-      time: '12:00',
-      unread: true,
-      chatId: '123',
-      avatarLink: '/150',
-    },
-    {
-      name: 'محمد السالم',
-      lastMessage: 'شكراً جزيلاً',
-      time: '11:45',
-      unread: false,
-      chatId: '124',
-      avatarLink: '/151',
-    },
-    {
-      name: 'سارة الأحمد',
-      lastMessage: 'موعدنا غداً في المكتب',
-      time: '10:30',
-      unread: true,
-      chatId: '125',
-      avatarLink: '/152',
-    },
-    {
-      name: 'عبدالله المحمد',
-      lastMessage: 'تم إرسال الملفات المطلوبة',
-      time: '09:15',
-      unread: false,
-      chatId: '126',
-      avatarLink: '/153',
-    },
-    {
-      name: 'نورة القحطاني',
-      lastMessage: 'أتمنى لك يوماً سعيداً',
-      time: 'يوم أمس',
-      unread: true,
-      chatId: '127',
-      avatarLink: '/154',
-    },
-  ];
   return (
     <div className="flex flex-col h-full p-10 border-l border-t border-b border-black bg-white">
       <div className="flex items-center justify-between">
@@ -84,8 +43,8 @@ export default function Chats() {
         <Tab label="الغير مقروءة" selected={false} onClick={() => {}} />
       </div>
       <div className="flex flex-col gap-2 mt-4 w-full">
-        {dummyChats.map(chat => (
-          <ChatItem key={chat.chatId} {...chat} />
+        {fakeRooms.map(chat => (
+          <ChatItem key={chat.id} {...chat} />
         ))}
       </div>
       <span className="flex items-center justify-center text-xs text-[#969696] text-center mt-4 gap-1">
