@@ -21,7 +21,7 @@ fi
 
 # Run linting after formatting
 echo "\n${YELLOW}Running ESLint...${NC}"
-if npm run lint; then
+if npm run lint --fix; then
     echo "${GREEN}✅ Linting passed!${NC}"
 else
     echo "${RED}❌ Linting failed! Please fix the errors above.${NC}"
