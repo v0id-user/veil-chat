@@ -32,19 +32,22 @@ export default function Options() {
         <AddressBookIcon className="w-full h-full fill-[#6B6060] p-1.5 relative z-10" />
       </div>
       <div className="flex-1"></div>
-      <div className="w-10 h-10 rounded-full relative cursor-pointer group">
-        <div className="flex flex-col items-center justify-center">
-          <div className="absolute inset-0 rounded-full bg-[#6B6060]/50 opacity-0 group-hover:opacity-100 transition-opacity" />
-          <SettingsIcon className="w-full h-full fill-[#6B6060] p-1.5 relative z-10" />
-          <Image
-            src={currentUser.avatarLink}
-            alt="User Avatar"
-            width={32}
-            height={32}
-            className="absolute top-0 right-0 rounded-full"
-          />
-        </div>
+      <div
+        className={`w-10 h-10 rounded-full relative cursor-pointer group ${
+          selectedSection === Section.Settings ? 'bg-[#6B6060]/50' : 'bg-transparent'
+        }`}
+        onClick={() => setSelectedSection(Section.Settings)}
+      >
+        <div className="absolute inset-0 rounded-full bg-[#6B6060]/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+        <SettingsIcon className="w-full h-full fill-[#6B6060] p-1 relative z-10" />
       </div>
+      <Image
+        src={currentUser.avatarLink}
+        alt="User Avatar"
+        width={32}
+        height={32}
+        className="w-fit h-fit rounded-full"
+      />
     </div>
   );
 }
