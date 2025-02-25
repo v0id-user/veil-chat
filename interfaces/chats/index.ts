@@ -1,4 +1,4 @@
-import Room from './rooms';
-import { Message, Reaction } from './messages';
+import Room from './room';
+import { Message, Reaction } from './message';
 
 export type { Room, Message, Reaction };
