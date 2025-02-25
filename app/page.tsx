@@ -2,9 +2,9 @@
 
 import { useSelectionStore } from '@/store/selection';
 import Section from '@/enums/selection';
-import Chats from './Chats';
-import Options from './Options';
-
+import Chats from './selectable/chats';
+import Options from './options';
+import Settings from './selectable/settings';
 const ColorBanner = () => {
   return (
     <>
@@ -21,6 +21,7 @@ export default function Home() {
       <div className="flex h-full m-12 rounded-xl">
         <Options />
         {selectedSection === Section.Chats && <Chats />}
+        {selectedSection === Section.Settings && <Settings />}
       </div>
     </main>
   );

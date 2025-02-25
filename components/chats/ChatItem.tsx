@@ -21,7 +21,7 @@ export default function ChatItem({
       }}
     >
       <Image
-        src={participants[0].avatarLink}
+        src={participants[1].avatarLink}
         alt={name}
         className="w-12 h-12 rounded-full"
         width={48}

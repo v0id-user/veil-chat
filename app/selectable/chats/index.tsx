@@ -8,10 +8,11 @@ import Lock from '@/public/icons/lock-16px.svg';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Trash2 } from 'lucide-react';
 import { fakeRooms } from '@/store/debug/fake';
+import ViewLayout from '@/app/selectable/layout';
 
-export default function Chats() {
+export default function ChatsPage() {
   return (
-    <div className="flex flex-col h-full p-10 border-l border-t border-b border-black bg-white">
+    <ViewLayout className="border-l border-t border-b">
       <div className="flex items-center justify-between">
         <h1 className="text-4xl font-bold">محادثات</h1>
         <div className="flex items-center gap-4">
@@ -54,6 +55,6 @@ export default function Chats() {
           بتشفير من طرف إلى طرف
         </Link>
       </span>
-    </div>
+    </ViewLayout>
   );
 }
