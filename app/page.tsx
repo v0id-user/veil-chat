@@ -1,8 +1,9 @@
 'use client';
 
 import { useSelectionStore } from '@/store/selection';
-import { lazy } from 'react';
 import Section from '@/enums/selection';
+import Chats from './Chats';
+import Options from './Options';
 
 const ColorBanner = () => {
   return (
@@ -12,14 +13,13 @@ const ColorBanner = () => {
   );
 };
 
-const Chats = lazy(() => import('./Chats'));
 export default function Home() {
   const { selectedSection } = useSelectionStore();
   return (
     <main className="flex flex-col h-screen">
       <ColorBanner />
-      <div className="flex h-full border border-black m-12 rounded-xl">
-        {/* lazy loading */}
+      <div className="flex h-full m-12 rounded-xl">
+        <Options />
         {selectedSection === Section.Chats && <Chats />}
       </div>
     </main>

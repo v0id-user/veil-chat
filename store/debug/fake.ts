@@ -8,7 +8,7 @@ const primeUser: User = {
   email: 'ahmed.mohamed@example.com',
   joinedAt: new Date('2023-01-15'),
   role: 'admin',
-  avatarLink: '/151',
+  avatarLink: 'https://api.dicebear.com/9.x/glass/svg?seed=Kimbxerly',
 };
 
 // Other fake users (representing contacts)
@@ -19,7 +19,7 @@ const fakeUsers: User[] = [
     email: 'fatima.ali@example.com',
     joinedAt: new Date('2023-02-01'),
     role: 'user',
-    avatarLink: '/152',
+    avatarLink: 'https://api.dicebear.com/9.x/glass/svg?seed=Kimbxely',
   },
   {
     id: '3',
@@ -27,7 +27,7 @@ const fakeUsers: User[] = [
     email: 'omar.hassan@example.com',
     joinedAt: new Date('2023-03-10'),
     role: 'user',
-    avatarLink: '/153',
+    avatarLink: 'https://api.dicebear.com/9.x/glass/svg?seed=Kim1bxely',
   },
   {
     id: '4',
@@ -35,7 +35,7 @@ const fakeUsers: User[] = [
     email: 'sara.ahmed@example.com',
     joinedAt: new Date('2023-04-05'),
     role: 'user',
-    avatarLink: '/154',
+    avatarLink: 'https://api.dicebear.com/9.x/glass/svg?seed=Kzimbxely',
   },
   {
     id: '5',
@@ -43,7 +43,7 @@ const fakeUsers: User[] = [
     email: 'khaled.mahmoud@example.com',
     joinedAt: new Date('2023-05-20'),
     role: 'user',
-    avatarLink: '/155',
+    avatarLink: 'https://api.dicebear.com/9.x/glass/svg?seed=Kimbxelyx',
   },
 ];
 
@@ -110,7 +110,7 @@ const fatimaRoom: Room = {
   updatedAt: new Date('2023-06-01'),
   createdBy: primeUser,
   participants: [primeUser, fakeUsers[0]],
-  avatarLink: '/152',
+  avatarLink: 'https://api.dicebear.com/9.x/glass/svg?seed=K1mbxely',
   unread: false,
   lastMessage: fatimaMessages[1],
   lastMessageAt: new Date('2023-06-01T10:05:00'),
@@ -123,7 +123,7 @@ const omarRoom: Room = {
   updatedAt: new Date('2023-06-02'),
   createdBy: primeUser,
   participants: [primeUser, fakeUsers[1]],
-  avatarLink: '/153',
+  avatarLink: 'https://api.dicebear.com/9.x/glass/svg?seed=Kimz1bxely',
   unread: true,
   lastMessage: omarMessages[1],
   lastMessageAt: new Date('2023-06-02T15:35:00'),
@@ -136,7 +136,7 @@ const saraRoom: Room = {
   updatedAt: new Date('2023-06-03'),
   createdBy: primeUser,
   participants: [primeUser, fakeUsers[2]],
-  avatarLink: '/154',
+  avatarLink: 'https://api.dicebear.com/9.x/glass/svg?seed=Kzxcimbxely',
   unread: false,
   lastMessage: saraMessages[0],
   lastMessageAt: new Date('2023-06-03T09:00:00'),
@@ -151,4 +151,4 @@ saraMessages.forEach(msg => (msg.room = saraRoom));
 const fakeMessages = [...fatimaMessages, ...omarMessages, ...saraMessages];
 const fakeRooms = [fatimaRoom, omarRoom, saraRoom];
 
-export { fakeUsers, fakeRooms, fakeMessages };
+export { fakeUsers, fakeRooms, fakeMessages, primeUser };
