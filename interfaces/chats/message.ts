@@ -8,12 +8,13 @@ interface Reaction {
 
 interface Message {
   id: string;
+  roomId: string;
   content: string;
   reactions: Reaction[];
   sender: User;
-  room: Room;
   createdAt: Date;
   updatedAt: Date;
+  unread: boolean;
 }
 
-export type { Message, Reaction };
+export type { Message };

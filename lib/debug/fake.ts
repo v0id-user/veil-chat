@@ -1,4 +1,5 @@
-import { Message, Room } from '@/interfaces/chats';
+import { Message } from '@/interfaces/chats';
+import Room from '@/interfaces/chats/room';
 import { User } from '@/interfaces/users';
 
 // Primary debug user (representing the logged-in user)
@@ -51,54 +52,59 @@ const fakeUsers: User[] = [
 const fatimaMessages: Message[] = [
   {
     id: '1',
+    roomId: '1',
     content: 'السلام عليكم فاطمة، كيف حالك؟',
     reactions: [{ emoji: '👋', reactedBy: fakeUsers[0] }],
     sender: primeUser,
-    room: null as any,
     createdAt: new Date('2023-06-01T10:00:00'),
     updatedAt: new Date('2023-06-01T10:00:00'),
+    unread: false,
   },
   {
     id: '2',
+    roomId: '1',
     content: 'وعليكم السلام أحمد، الحمد لله بخير. كيف أحوالك؟',
     reactions: [{ emoji: '❤️', reactedBy: primeUser }],
     sender: fakeUsers[0],
-    room: null as any,
     createdAt: new Date('2023-06-01T10:05:00'),
     updatedAt: new Date('2023-06-01T10:05:00'),
+    unread: false,
   },
 ];
 
 const omarMessages: Message[] = [
   {
     id: '3',
+    roomId: '2',
     content: 'عمر، هل انتهيت من مراجعة المستندات؟',
     reactions: [],
     sender: primeUser,
-    room: null as any,
     createdAt: new Date('2023-06-02T15:30:00'),
     updatedAt: new Date('2023-06-02T15:30:00'),
+    unread: false,
   },
   {
     id: '4',
+    roomId: '2',
     content: 'نعم، انتهيت منها. سأرسل لك التقرير النهائي خلال ساعة',
     reactions: [{ emoji: '👍', reactedBy: primeUser }],
     sender: fakeUsers[1],
-    room: null as any,
     createdAt: new Date('2023-06-02T15:35:00'),
     updatedAt: new Date('2023-06-02T15:35:00'),
+    unread: true,
   },
 ];
 
 const saraMessages: Message[] = [
   {
     id: '5',
+    roomId: '3',
     content: 'مرحباً سارة، هل أنهيتي تصميم الواجهة الجديدة؟',
     reactions: [],
     sender: primeUser,
-    room: null as any,
     createdAt: new Date('2023-06-03T09:00:00'),
     updatedAt: new Date('2023-06-03T09:00:00'),
+    unread: false,
   },
 ];
 
@@ -111,9 +117,6 @@ const fatimaRoom: Room = {
   createdBy: primeUser,
   participants: [primeUser, fakeUsers[0]],
   avatarLink: fakeUsers[0].avatarLink,
-  unread: false,
-  lastMessage: fatimaMessages[1],
-  lastMessageAt: new Date('2023-06-01T10:05:00'),
 };
 
 const omarRoom: Room = {
@@ -124,9 +127,6 @@ const omarRoom: Room = {
   createdBy: primeUser,
   participants: [primeUser, fakeUsers[1]],
   avatarLink: fakeUsers[1].avatarLink,
-  unread: true,
-  lastMessage: omarMessages[1],
-  lastMessageAt: new Date('2023-06-02T15:35:00'),
 };
 
 const saraRoom: Room = {
@@ -137,15 +137,7 @@ const saraRoom: Room = {
   createdBy: primeUser,
   participants: [primeUser, fakeUsers[2]],
   avatarLink: fakeUsers[2].avatarLink,
-  unread: false,
-  lastMessage: saraMessages[0],
-  lastMessageAt: new Date('2023-06-03T09:00:00'),
 };
-
-// Assign rooms to their messages
-fatimaMessages.forEach(msg => (msg.room = fatimaRoom));
-omarMessages.forEach(msg => (msg.room = omarRoom));
-saraMessages.forEach(msg => (msg.room = saraRoom));
 
 // Combine all messages and rooms for export
 const fakeMessages = [...fatimaMessages, ...omarMessages, ...saraMessages];

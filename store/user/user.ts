@@ -1,5 +1,5 @@
 import { User } from '@/interfaces/users';
-import { primeUser } from '@/store/debug/fake';
+import { primeUser } from '@/lib/debug/fake';
 import { create } from 'zustand';
 
 interface UserStore {

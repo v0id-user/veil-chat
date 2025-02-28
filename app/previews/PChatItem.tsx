@@ -1,5 +1,5 @@
-import ChatItem from '@/components/chats/ChatItem';
-import { fakeRooms } from '@/store/debug/fake';
+import ChatItem from '@/components/chats/RoomItem';
+import { fakeRooms } from '@/lib/debug/fake';
 
 export default function PChatItem() {
   const chats = fakeRooms;

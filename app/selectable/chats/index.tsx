@@ -2,12 +2,12 @@ import SearchBar from '@/components/utils/SearchBar';
 import ThreeDots from '@/public/icons/dots-three-outline-vertical.svg';
 import UserPlus from '@/public/icons/user-plus.svg';
 import Tab from '@/components/utils/Tab';
-import ChatItem from '@/components/chats/ChatItem';
+import ChatItem from '@/components/chats/RoomItem';
 import Link from 'next/link';
 import Lock from '@/public/icons/lock-16px.svg';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Trash2 } from 'lucide-react';
-import { fakeRooms } from '@/store/debug/fake';
+import { fakeRooms } from '@/lib/debug/fake';
 import ViewLayout from '@/app/selectable/layout';
 
 export default function ChatsPage() {
