@@ -5,7 +5,7 @@ import Section from '@/enums/selection';
 import ChatIcon from '@/public/icons/chat-bold.svg';
 import AddressBookIcon from '@/public/icons/address-book-tabs-bold.svg';
 import SettingsIcon from '@/public/icons/gear-six.svg';
-import useUserStore from '@/store/user/user';
+import useUserStore from '@/store/account/account';
 import Image from 'next/image';
 export default function Options() {
   const { selectedSection, setSelectedSection } = useSelectionStore();

@@ -1,4 +1,4 @@
-import { User } from '@/interfaces/users';
+import { Account } from '@/interfaces/accounts';
 
 interface Room {
   id: string;
@@ -6,8 +6,8 @@ interface Room {
   createdAt: Date;
   updatedAt: Date;
   avatarLink: string;
-  createdBy: User;
-  participants: User[];
+  createdBy: Account;
+  participants: Account[];
 }
 
 export default Room;

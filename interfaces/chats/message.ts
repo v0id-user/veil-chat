@@ -1,17 +1,18 @@
-import { User } from '@/interfaces/users';
+import { Account } from '@/interfaces/accounts';
 import { Room } from '@/interfaces/chats';
 
 interface Reaction {
   emoji: string;
-  reactedBy: User;
+  reactedBy: Account;
+  reactedAt: Date;
 }
 
 interface Message {
   id: string;
-  roomId: string;
   content: string;
   reactions: Reaction[];
-  sender: User;
+  sender: Account;
+  room: Room;
   createdAt: Date;
   updatedAt: Date;
   unread: boolean;
