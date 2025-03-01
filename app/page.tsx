@@ -5,6 +5,7 @@ import Section from '@/enums/selection';
 import Chats from './selectable/chats';
 import Options from './options';
 import Settings from './selectable/settings';
+
 const ColorBanner = () => {
   return (
     <>

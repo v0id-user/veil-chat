@@ -5,11 +5,11 @@ import Section from '@/enums/selection';
 import ChatIcon from '@/public/icons/chat-bold.svg';
 import AddressBookIcon from '@/public/icons/address-book-tabs-bold.svg';
 import SettingsIcon from '@/public/icons/gear-six.svg';
-import useUserStore from '@/store/account/account';
+import useAccountStore from '@/store/account';
 import Image from 'next/image';
 export default function Options() {
   const { selectedSection, setSelectedSection } = useSelectionStore();
-  const { currentUser } = useUserStore();
+  const { currentAccount } = useAccountStore();
   // This is a sidebar with icons of options
   return (
     <div className="flex flex-col p-5 gap-3 h-full rounded-r-xl rounded-br-xl border-r border-t border-b border-black bg-[#F0F2F5]">
@@ -42,7 +42,7 @@ export default function Options() {
         <SettingsIcon className="w-full h-full fill-[#6B6060] p-1 relative z-10" />
       </div>
       <Image
-        src={currentUser.avatarLink}
+        src={currentAccount.avatarLink}
         alt="User Avatar"
         width={32}
         height={32}
