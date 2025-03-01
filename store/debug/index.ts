@@ -1,3 +1,3 @@
-import { primeAccount } from '@/lib/debug/fake';
+import { useDebugStore } from './debug';
 
-export { primeAccount };
+export { useDebugStore };

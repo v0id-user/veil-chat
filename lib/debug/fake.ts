@@ -1,15 +1,26 @@
 import { Message } from '@/interfaces/chats';
 import Room from '@/interfaces/chats/room';
 import { Account } from '@/interfaces/accounts';
+import AccountRole from '@/enums/accounts';
 
-// Primary debug user (representing the logged-in user)
+// First debug user (representing the logged-in user)
 const primeAccount: Account = {
   id: '1',
   name: 'أحمد محمد',
   email: 'ahmed.mohamed@example.com',
   joinedAt: new Date('2023-01-15'),
-  role: 'admin',
+  role: AccountRole.Premium,
   avatarLink: 'https://api.dicebear.com/9.x/glass/svg?seed=Leo',
+};
+
+// Second debug user (representing a different user)
+const secondaryPrimeAccount: Account = {
+  id: '21',
+  name: 'محمد علي',
+  email: 'mohamed.ali@example.com',
+  joinedAt: new Date('2023-02-20'),
+  role: AccountRole.Free,
+  avatarLink: 'https://api.dicebear.com/9.x/glass/svg?seed=Mohamed',
 };
 
 // Other fake users (representing contacts)
@@ -19,7 +30,7 @@ const fakeUsers: Account[] = [
     name: 'فاطمة علي',
     email: 'fatima.ali@example.com',
     joinedAt: new Date('2023-02-01'),
-    role: 'user',
+    role: AccountRole.Free,
     avatarLink: 'https://api.dicebear.com/9.x/glass/svg?seed=Kingston',
   },
   {
@@ -27,7 +38,7 @@ const fakeUsers: Account[] = [
     name: 'عمر حسن',
     email: 'omar.hassan@example.com',
     joinedAt: new Date('2023-03-10'),
-    role: 'user',
+    role: AccountRole.Free,
     avatarLink: 'https://api.dicebear.com/9.x/glass/svg?seed=Aidan',
   },
   {
@@ -35,7 +46,7 @@ const fakeUsers: Account[] = [
     name: 'سارة أحمد',
     email: 'sara.ahmed@example.com',
     joinedAt: new Date('2023-04-05'),
-    role: 'user',
+    role: AccountRole.Free,
     avatarLink: 'https://api.dicebear.com/9.x/glass/svg?seed=Sarah',
   },
   {
@@ -43,7 +54,7 @@ const fakeUsers: Account[] = [
     name: 'خالد محمود',
     email: 'khaled.mahmoud@example.com',
     joinedAt: new Date('2023-05-20'),
-    role: 'user',
+    role: AccountRole.Free,
     avatarLink: 'https://api.dicebear.com/9.x/glass/svg?seed=Christopher',
   },
 ];
@@ -149,4 +160,4 @@ const saraMessages: Message[] = [
 const fakeMessages = [...fatimaMessages, ...omarMessages, ...saraMessages];
 const fakeRooms = [fatimaRoom, omarRoom, saraRoom];
 
-export { fakeUsers, fakeRooms, fakeMessages, primeAccount };
+export { fakeUsers, fakeRooms, fakeMessages, primeAccount, secondaryPrimeAccount };

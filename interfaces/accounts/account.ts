@@ -1,9 +1,11 @@
+import AccountRole from '@/enums/accounts';
+
 interface Account {
   id: string;
   name: string;
   email: string;
   joinedAt: Date;
-  role: string;
+  role: AccountRole;
   avatarLink: string;
 }
 

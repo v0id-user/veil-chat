@@ -3,6 +3,8 @@ import { Message, Room } from '@/interfaces/chats';
 import { Account } from '@/interfaces/accounts';
 import Dexie, { type EntityTable } from 'dexie';
 import relationships from 'dexie-relationships';
+import { seedMessages } from '@/lib/database/messages/seed';
+import { seedRooms } from '@/lib/database/rooms/seed';
 
 // Schema for the database
 
@@ -34,5 +36,18 @@ db.version(1).stores({
   rooms: '++id, name, createdAt, updatedAt, avatarLink, createdBy -> accounts.id, participants',
   messages: '++id, room -> rooms.id, content, sender -> accounts.id, createdAt, updatedAt, unread',
 });
+
+// Initialize database with seed data
+async function initializeDatabase() {
+  try {
+    await seedRooms();
+    await seedMessages();
+    console.log('Database initialization complete');
+  } catch (error) {
+    console.error('Error initializing database:', error);
+  }
+}
+
+initializeDatabase();
 
 export { db };

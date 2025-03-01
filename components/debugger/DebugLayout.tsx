@@ -1,14 +1,27 @@
 'use client';
 
-import { primeAccount } from '@/store/debug';
+import { useDebugStore } from '@/store/debug';
 import { useRef } from 'react';
 import { useDraggable } from './useDraggable';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { primeAccount, secondaryPrimeAccount } from '@/lib/debug/fake';
 
 export default function DebugLayout() {
   const debugRef = useRef<HTMLDivElement>(null);
   const { position, isDragging, handleMouseDown } = useDraggable(
     debugRef as React.RefObject<HTMLDivElement>
   );
+  const { setSelectedAccount, getSelectedAccount } = useDebugStore();
+
+  if (process.env.NEXT_PUBLIC_DEBUG !== 'true') {
+    return null;
+  }
 
   return (
     <div
@@ -32,18 +45,41 @@ export default function DebugLayout() {
           <div className="font-bold text-zinc-400 mb-2">Prime Account:</div>
           <div className="grid grid-cols-[80px_1fr] gap-y-1">
             <span className="text-zinc-500">Name:</span>
-            <span className="text-zinc-300">{primeAccount.name}</span>
+            <span className="text-zinc-300">{getSelectedAccount().name}</span>
 
             <span className="text-zinc-500">Email:</span>
-            <span className="text-zinc-300">{primeAccount.email}</span>
+            <span className="text-zinc-300">{getSelectedAccount().email}</span>
 
             <span className="text-zinc-500">Role:</span>
-            <span className="text-zinc-300 bg-zinc-800 px-2 rounded">{primeAccount.role}</span>
+            <span className="text-zinc-300 bg-zinc-800 px-2 rounded">
+              {getSelectedAccount().role}
+            </span>
 
             <span className="text-zinc-500">Joined:</span>
-            <span className="text-zinc-300">{primeAccount.joinedAt.toLocaleDateString()}</span>
+            <span className="text-zinc-300">
+              {getSelectedAccount().joinedAt.toLocaleDateString()}
+            </span>
           </div>
         </div>
+        <Select
+          value={getSelectedAccount().id}
+          onValueChange={value => {
+            // Find the account that matches the selected ID
+            if (value === primeAccount.id) {
+              setSelectedAccount(primeAccount);
+            } else if (value === secondaryPrimeAccount.id) {
+              setSelectedAccount(secondaryPrimeAccount);
+            }
+          }}
+        >
+          <SelectTrigger className="bg-black text-white ring-0 border-none">
+            <SelectValue placeholder="Select an account" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value={primeAccount.id}>{primeAccount.name}</SelectItem>
+            <SelectItem value={secondaryPrimeAccount.id}>{secondaryPrimeAccount.name}</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
     </div>
   );
