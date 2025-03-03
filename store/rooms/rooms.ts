@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { fakeRooms, fakeUsers } from '@/lib/debug/fake';
 import { Room } from '@/interfaces/chats';
 
 interface RoomsStore {
