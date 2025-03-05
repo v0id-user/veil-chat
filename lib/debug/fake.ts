@@ -65,8 +65,8 @@ const fatimaRoom: Room = {
   name: 'فاطمة علي',
   createdAt: new Date('2023-01-20'),
   updatedAt: new Date('2023-06-01'),
-  createdBy: primeAccount,
-  participants: [primeAccount, fakeUsers[0]],
+  createdById: primeAccount.id,
+  participantsIds: [primeAccount.id, fakeUsers[0].id],
   avatarLink: fakeUsers[0].avatarLink,
 };
 
@@ -75,8 +75,8 @@ const omarRoom: Room = {
   name: 'عمر حسن',
   createdAt: new Date('2023-02-15'),
   updatedAt: new Date('2023-06-02'),
-  createdBy: primeAccount,
-  participants: [primeAccount, fakeUsers[1]],
+  createdById: primeAccount.id,
+  participantsIds: [primeAccount.id, fakeUsers[1].id],
   avatarLink: fakeUsers[1].avatarLink,
 };
 
@@ -85,8 +85,8 @@ const saraRoom: Room = {
   name: 'سارة أحمد',
   createdAt: new Date('2023-03-01'),
   updatedAt: new Date('2023-06-03'),
-  createdBy: primeAccount,
-  participants: [primeAccount, fakeUsers[2]],
+  createdById: primeAccount.id,
+  participantsIds: [primeAccount.id, fakeUsers[2].id],
   avatarLink: fakeUsers[2].avatarLink,
 };
 
@@ -94,24 +94,24 @@ const saraRoom: Room = {
 const fatimaMessages: Message[] = [
   {
     id: '1',
-    room: fatimaRoom,
+    roomId: fatimaRoom.id,
     content: 'السلام عليكم فاطمة، كيف حالك؟',
     reactions: [
       { emoji: '👋', reactedBy: fakeUsers[0], reactedAt: new Date('2023-06-01T10:00:00') },
     ],
-    sender: primeAccount,
+    senderId: primeAccount.id,
     createdAt: new Date('2023-06-01T10:00:00'),
     updatedAt: new Date('2023-06-01T10:00:00'),
     unread: false,
   },
   {
     id: '2',
-    room: fatimaRoom,
+    roomId: fatimaRoom.id,
     content: 'وعليكم السلام أحمد، الحمد لله بخير. كيف أحوالك؟',
     reactions: [
       { emoji: '❤️', reactedBy: primeAccount, reactedAt: new Date('2023-06-01T10:05:00') },
     ],
-    sender: fakeUsers[0],
+    senderId: fakeUsers[0].id,
     createdAt: new Date('2023-06-01T10:05:00'),
     updatedAt: new Date('2023-06-01T10:05:00'),
     unread: false,
@@ -121,22 +121,22 @@ const fatimaMessages: Message[] = [
 const omarMessages: Message[] = [
   {
     id: '3',
-    room: omarRoom,
+    roomId: omarRoom.id,
     content: 'عمر، هل انتهيت من مراجعة المستندات؟',
     reactions: [],
-    sender: primeAccount,
+    senderId: primeAccount.id,
     createdAt: new Date('2023-06-02T15:30:00'),
     updatedAt: new Date('2023-06-02T15:30:00'),
     unread: false,
   },
   {
     id: '4',
-    room: omarRoom,
+    roomId: omarRoom.id,
     content: 'نعم، انتهيت منها. سأرسل لك التقرير النهائي خلال ساعة',
     reactions: [
       { emoji: '👍', reactedBy: primeAccount, reactedAt: new Date('2023-06-02T15:35:00') },
     ],
-    sender: fakeUsers[1],
+    senderId: fakeUsers[1].id,
     createdAt: new Date('2023-06-02T15:35:00'),
     updatedAt: new Date('2023-06-02T15:35:00'),
     unread: true,
@@ -146,10 +146,10 @@ const omarMessages: Message[] = [
 const saraMessages: Message[] = [
   {
     id: '5',
-    room: saraRoom,
+    roomId: saraRoom.id,
     content: 'مرحباً سارة، هل أنهيتي تصميم الواجهة الجديدة؟',
     reactions: [],
-    sender: primeAccount,
+    senderId: primeAccount.id,
     createdAt: new Date('2023-06-03T09:00:00'),
     updatedAt: new Date('2023-06-03T09:00:00'),
     unread: false,

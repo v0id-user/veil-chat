@@ -8,9 +8,11 @@ export default function PMessageBubble() {
         id: '1',
         content: 'Hello, how are you?',
         reactions: [],
-        sender: fakeUsers[0],
+        senderId: fakeUsers[0].id,
+        roomId: '1',
         createdAt: new Date(),
         updatedAt: new Date(),
+        unread: false,
       }}
       isSender={true}
     />

@@ -1,5 +1,4 @@
 import { Account } from '@/interfaces/accounts';
-import { Room } from '@/interfaces/chats';
 
 interface Reaction {
   emoji: string;
@@ -11,8 +10,8 @@ interface Message {
   id: string;
   content: string;
   reactions: Reaction[];
-  sender: Account;
-  room: Room;
+  senderId: string;
+  roomId: string;
   createdAt: Date;
   updatedAt: Date;
   unread: boolean;

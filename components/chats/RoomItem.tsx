@@ -4,10 +4,13 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Room } from '@/interfaces/chats';
 
-export default function RoomItem({ name, id, participants }: Room) {
+export default function RoomItem({ name, id, participantsIds }: Room) {
   const router = useRouter();
   {
-    /* Grab the last message from the database */
+    /* TODO: 
+        - Grab the last message from the database
+        - Get the account data from the database
+     */
   }
   return (
     <div
@@ -17,7 +20,7 @@ export default function RoomItem({ name, id, participants }: Room) {
       }}
     >
       <Image
-        src={participants[1].avatarLink}
+        src="/__TODO__GET_ME_FROM_INDEXEDDB{participants[1].avatarLink}__"
         alt={name}
         className="w-12 h-12 rounded-full"
         width={48}
@@ -40,6 +43,7 @@ export default function RoomItem({ name, id, participants }: Room) {
             hour12: true,
           })} */}
           Time message
+          {participantsIds.length}
         </p>
         <div className="w-3 h-3 bg-[#DC0E11] rounded-full" />
       </div>

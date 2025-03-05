@@ -33,8 +33,10 @@ const db = new Dexie('ChatsDatabase', { addons: [relationships] }) as Dexie & {
 db.version(1).stores({
   primeAccount: '++id, name, email, joinedAt, role, avatarLink',
   accounts: '++id, name, email, joinedAt, role, avatarLink',
-  rooms: '++id, name, createdAt, updatedAt, avatarLink, createdBy -> accounts.id, participants',
-  messages: '++id, room -> rooms.id, content, sender -> accounts.id, createdAt, updatedAt, unread',
+  rooms:
+    '++id, name, createdAt, updatedAt, avatarLink, createdById -> accounts.id, participantsIds',
+  messages:
+    '++id, roomId -> rooms.id, content, senderId -> accounts.id, createdAt, updatedAt, unread',
 });
 
 // Initialize database with seed data
