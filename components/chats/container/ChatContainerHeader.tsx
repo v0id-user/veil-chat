@@ -17,9 +17,9 @@ const NameAvatar = ({ name, avatar }: { name: string; avatar: string }) => {
 const OptionsAndCalls = () => {
   return (
     <div className="flex items-center gap-5">
-      <VideoCamera className="w-8 h-8 fill-[#6B6060] hover:fill-[#000] rounded-full cursor-pointer p-1 transition-colors" />
-      <Phone className="w-8 h-8 fill-[#6B6060] hover:fill-[#000] rounded-full cursor-pointer p-1 transition-colors" />
-      <ThreeDots className="w-8 h-8 fill-[#6B6060] hover:fill-[#000] rounded-full cursor-pointer p-1 transition-colors" />
+      <VideoCamera className="h-8 w-8 cursor-pointer rounded-full fill-[#6B6060] p-1 transition-colors hover:fill-[#000]" />
+      <Phone className="h-8 w-8 cursor-pointer rounded-full fill-[#6B6060] p-1 transition-colors hover:fill-[#000]" />
+      <ThreeDots className="h-8 w-8 cursor-pointer rounded-full fill-[#6B6060] p-1 transition-colors hover:fill-[#000]" />
     </div>
   );
 };
@@ -31,8 +31,8 @@ interface ChatContainerHeaderProps {
 
 export default function ChatContainerHeader({ account, room }: ChatContainerHeaderProps) {
   return (
-    <div className="flex p-3 items-center justify-between w-full h-fit rounded-tl-xl border solid border-t-black border-l-black bg-[#F5F0F0]">
-      <div className="flex items-center justify-between w-full">
+    <div className="solid flex h-fit w-full items-center justify-between rounded-tl-xl border border-l-black border-t-black bg-[#F5F0F0] p-3">
+      <div className="flex w-full items-center justify-between">
         <NameAvatar name={account.name} avatar={account.avatarLink} />
         <OptionsAndCalls />
         <label className="absolute">Use me: room object{room.name}</label>

@@ -5,7 +5,7 @@ export default function PChatItem() {
   const chats = fakeRooms;
 
   return (
-    <div className="flex flex-col gap-2 w-full">
+    <div className="flex w-full flex-col gap-2">
       {chats.map(chat => (
         <ChatItem key={chat.id} {...chat} />
       ))}

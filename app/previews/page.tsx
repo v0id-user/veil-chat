@@ -27,11 +27,11 @@ export default function Previews() {
   return (
     <div className="flex min-h-screen ltr:flex-row rtl:flex-row-reverse">
       {/* Sidebar */}
-      <div className="w-64 bg-gray-100 p-4 border-r border-gray-200">
-        <h1 className="text-xl font-bold mb-4">Components</h1>
+      <div className="w-64 border-r border-gray-200 bg-gray-100 p-4">
+        <h1 className="mb-4 text-xl font-bold">Components</h1>
         <button
           onClick={() => setSelectedComponent('searchBar')}
-          className={`w-full text-left p-2 rounded ${
+          className={`w-full rounded p-2 text-left ${
             selectedComponent === 'searchBar' ? 'bg-gray-200' : 'hover:bg-gray-200'
           }`}
         >
@@ -39,7 +39,7 @@ export default function Previews() {
         </button>
         <button
           onClick={() => setSelectedComponent('tabs')}
-          className={`w-full text-left p-2 rounded ${
+          className={`w-full rounded p-2 text-left ${
             selectedComponent === 'tabs' ? 'bg-gray-200' : 'hover:bg-gray-200'
           }`}
         >
@@ -47,7 +47,7 @@ export default function Previews() {
         </button>
         <button
           onClick={() => setSelectedComponent('chatItem')}
-          className={`w-full text-left p-2 rounded ${
+          className={`w-full rounded p-2 text-left ${
             selectedComponent === 'chatItem' ? 'bg-gray-200' : 'hover:bg-gray-200'
           }`}
         >

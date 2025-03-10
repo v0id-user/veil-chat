@@ -26,7 +26,7 @@ export default function DebugLayout() {
   return (
     <div
       ref={debugRef}
-      className="fixed w-fit max-w-[400px] h-fit font-mono bg-zinc-900 text-sm rounded-xl shadow-lg p-3 border border-zinc-700 cursor-move z-50 transition-shadow"
+      className="fixed z-50 h-fit w-fit max-w-[400px] cursor-move rounded-xl border border-zinc-700 bg-zinc-900 p-3 font-mono text-sm shadow-lg transition-shadow"
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
@@ -38,11 +38,11 @@ export default function DebugLayout() {
       dir="ltr"
     >
       <div className="flex flex-col gap-3">
-        <div className="text-zinc-400 font-bold border-b border-zinc-700 pb-2 flex items-center">
+        <div className="flex items-center border-b border-zinc-700 pb-2 font-bold text-zinc-400">
           <span className="mr-2">⚙️</span> Debug Info
         </div>
-        <div className="text-zinc-300 overflow-auto">
-          <div className="font-bold text-zinc-400 mb-2">Prime Account:</div>
+        <div className="overflow-auto text-zinc-300">
+          <div className="mb-2 font-bold text-zinc-400">Prime Account:</div>
           <div className="grid grid-cols-[80px_1fr] gap-y-1">
             <span className="text-zinc-500">Name:</span>
             <span className="text-zinc-300">{selectedAccount.name}</span>
@@ -51,7 +51,7 @@ export default function DebugLayout() {
             <span className="text-zinc-300">{selectedAccount.email}</span>
 
             <span className="text-zinc-500">Role:</span>
-            <span className="text-zinc-300 bg-zinc-800 px-2 rounded">{selectedAccount.role}</span>
+            <span className="rounded bg-zinc-800 px-2 text-zinc-300">{selectedAccount.role}</span>
 
             <span className="text-zinc-500">Joined:</span>
             <span className="text-zinc-300">{selectedAccount.joinedAt.toLocaleDateString()}</span>
@@ -68,7 +68,7 @@ export default function DebugLayout() {
             }
           }}
         >
-          <SelectTrigger className="bg-black text-white ring-0 border-none">
+          <SelectTrigger className="border-none bg-black text-white ring-0">
             <SelectValue placeholder="Select an account" />
           </SelectTrigger>
           <SelectContent>

@@ -1,5 +1,5 @@
 import ViewLayout from '@/app/selectable/layout';
 
 export default function SettingsPage() {
-  return <ViewLayout className="border-l border-t border-b">Settings</ViewLayout>;
+  return <ViewLayout className="border-b border-l border-t">Settings</ViewLayout>;
 }

@@ -12,41 +12,41 @@ export default function Options() {
   const { currentAccount } = useAccountStore();
   // This is a sidebar with icons of options
   return (
-    <div className="flex flex-col p-5 gap-3 h-full rounded-r-xl rounded-br-xl border-r border-t border-b border-black bg-[#F0F2F5]">
+    <div className="flex h-full flex-col gap-3 rounded-r-xl rounded-br-xl border-b border-r border-t border-black bg-[#F0F2F5] p-5">
       <div
-        className={`w-10 h-10 rounded-full relative cursor-pointer group ${
+        className={`group relative h-10 w-10 cursor-pointer rounded-full ${
           selectedSection === Section.Chats ? 'bg-[#6B6060]/50' : 'bg-transparent'
         }`}
         onClick={() => setSelectedSection(Section.Chats)}
       >
-        <div className="absolute inset-0 rounded-full bg-[#6B6060]/50 opacity-0 group-hover:opacity-100 transition-opacity" />
-        <ChatIcon className="w-full h-full fill-[#6B6060] p-1.5 relative z-10" />
+        <div className="absolute inset-0 rounded-full bg-[#6B6060]/50 opacity-0 transition-opacity group-hover:opacity-100" />
+        <ChatIcon className="relative z-10 h-full w-full fill-[#6B6060] p-1.5" />
       </div>
       <div
-        className={`w-10 h-10 rounded-full relative cursor-pointer group ${
+        className={`group relative h-10 w-10 cursor-pointer rounded-full ${
           selectedSection === Section.Contacts ? 'bg-[#6B6060]/50' : 'bg-transparent'
         }`}
         onClick={() => setSelectedSection(Section.Contacts)}
       >
-        <div className="absolute inset-0 rounded-full bg-[#6B6060]/50 opacity-0 group-hover:opacity-100 transition-opacity" />
-        <AddressBookIcon className="w-full h-full fill-[#6B6060] p-1.5 relative z-10" />
+        <div className="absolute inset-0 rounded-full bg-[#6B6060]/50 opacity-0 transition-opacity group-hover:opacity-100" />
+        <AddressBookIcon className="relative z-10 h-full w-full fill-[#6B6060] p-1.5" />
       </div>
       <div className="flex-1"></div>
       <div
-        className={`w-10 h-10 rounded-full relative cursor-pointer group ${
+        className={`group relative h-10 w-10 cursor-pointer rounded-full ${
           selectedSection === Section.Settings ? 'bg-[#6B6060]/50' : 'bg-transparent'
         }`}
         onClick={() => setSelectedSection(Section.Settings)}
       >
-        <div className="absolute inset-0 rounded-full bg-[#6B6060]/50 opacity-0 group-hover:opacity-100 transition-opacity" />
-        <SettingsIcon className="w-full h-full fill-[#6B6060] p-1 relative z-10" />
+        <div className="absolute inset-0 rounded-full bg-[#6B6060]/50 opacity-0 transition-opacity group-hover:opacity-100" />
+        <SettingsIcon className="relative z-10 h-full w-full fill-[#6B6060] p-1" />
       </div>
       <Image
         src={currentAccount.avatarLink}
         alt="User Avatar"
         width={32}
         height={32}
-        className="w-fit h-fit rounded-full"
+        className="h-fit w-fit rounded-full"
       />
     </div>
   );

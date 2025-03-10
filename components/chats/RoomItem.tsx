@@ -14,7 +14,7 @@ export default function RoomItem({ name, id, participantsIds }: Room) {
   }
   return (
     <div
-      className="flex items-center gap-4 p-4 hover:bg-gray-50 transition-colors cursor-pointer border-b border-black border-opacity-10"
+      className="flex cursor-pointer items-center gap-4 border-b border-black border-opacity-10 p-4 transition-colors hover:bg-gray-50"
       onClick={() => {
         router.push(`/chats/${id}`);
       }}
@@ -22,11 +22,11 @@ export default function RoomItem({ name, id, participantsIds }: Room) {
       <Image
         src="/__TODO__GET_ME_FROM_INDEXEDDB{participants[1].avatarLink}__"
         alt={name}
-        className="w-12 h-12 rounded-full"
+        className="h-12 w-12 rounded-full"
         width={48}
         height={48}
       />
-      <div className="flex flex-col flex-1 gap-1">
+      <div className="flex flex-1 flex-col gap-1">
         <h3 className="text-lg font-bold">{name}</h3>
         <p className="text-sm text-gray-500">
           {/* {lastMessage.content.length > 50
@@ -45,7 +45,7 @@ export default function RoomItem({ name, id, participantsIds }: Room) {
           Time message
           {participantsIds.length}
         </p>
-        <div className="w-3 h-3 bg-[#DC0E11] rounded-full" />
+        <div className="h-3 w-3 rounded-full bg-[#DC0E11]" />
       </div>
     </div>
   );
