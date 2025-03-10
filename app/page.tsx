@@ -5,7 +5,9 @@ import Section from '@/enums/selection';
 import Chats from './selectable/chats';
 import Options from './options';
 import Settings from './selectable/settings';
-
+import ChatContainer from '@/components/chats/container/ChatContainer';
+import { fakeRooms } from '@/lib/debug/fake';
+import { useDebugStore } from '@/store/debug';
 const ColorBanner = () => {
   return (
     <>
@@ -16,6 +18,7 @@ const ColorBanner = () => {
 
 export default function Home() {
   const { selectedSection } = useSelectionStore();
+  const { selectedAccount } = useDebugStore();
   return (
     <main className="flex flex-col h-screen">
       <ColorBanner />
@@ -23,6 +26,7 @@ export default function Home() {
         <Options />
         {selectedSection === Section.Chats && <Chats />}
         {selectedSection === Section.Settings && <Settings />}
+        <ChatContainer account={selectedAccount} room={fakeRooms[0]} />
       </div>
     </main>
   );

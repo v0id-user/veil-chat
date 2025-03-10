@@ -17,7 +17,7 @@ export default function DebugLayout() {
   const { position, isDragging, handleMouseDown } = useDraggable(
     debugRef as React.RefObject<HTMLDivElement>
   );
-  const { setSelectedAccount, getSelectedAccount } = useDebugStore();
+  const { setSelectedAccount, selectedAccount } = useDebugStore();
 
   if (process.env.NEXT_PUBLIC_DEBUG !== 'true') {
     return null;
@@ -45,24 +45,20 @@ export default function DebugLayout() {
           <div className="font-bold text-zinc-400 mb-2">Prime Account:</div>
           <div className="grid grid-cols-[80px_1fr] gap-y-1">
             <span className="text-zinc-500">Name:</span>
-            <span className="text-zinc-300">{getSelectedAccount().name}</span>
+            <span className="text-zinc-300">{selectedAccount.name}</span>
 
             <span className="text-zinc-500">Email:</span>
-            <span className="text-zinc-300">{getSelectedAccount().email}</span>
+            <span className="text-zinc-300">{selectedAccount.email}</span>
 
             <span className="text-zinc-500">Role:</span>
-            <span className="text-zinc-300 bg-zinc-800 px-2 rounded">
-              {getSelectedAccount().role}
-            </span>
+            <span className="text-zinc-300 bg-zinc-800 px-2 rounded">{selectedAccount.role}</span>
 
             <span className="text-zinc-500">Joined:</span>
-            <span className="text-zinc-300">
-              {getSelectedAccount().joinedAt.toLocaleDateString()}
-            </span>
+            <span className="text-zinc-300">{selectedAccount.joinedAt.toLocaleDateString()}</span>
           </div>
         </div>
         <Select
-          value={getSelectedAccount().id}
+          value={selectedAccount.id}
           onValueChange={value => {
             // Find the account that matches the selected ID
             if (value === primeAccount.id) {
