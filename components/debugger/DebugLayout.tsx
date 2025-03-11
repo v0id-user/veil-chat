@@ -35,32 +35,32 @@ export default function DebugLayout() {
           : '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
       }}
       onMouseDown={handleMouseDown}
-      dir="ltr"
+      dir="rtl"
     >
       <div className="flex flex-col gap-3">
         <div className="flex items-center border-b border-zinc-700 pb-2 font-bold text-zinc-400">
-          <span className="mr-2">⚙️</span> Debug Info
+          <span className="mr-2">⚙️</span> معلومات التصحيح
         </div>
         <div className="overflow-auto text-zinc-300">
-          <div className="mb-2 font-bold text-zinc-400">Prime Account:</div>
+          <div className="mb-2 font-bold text-zinc-400">الحساب الرئيسي:</div>
           <div className="grid grid-cols-[80px_1fr] gap-y-1">
-            <span className="text-zinc-500">Name:</span>
+            <span className="text-zinc-500">الاسم:</span>
             <span className="text-zinc-300">{selectedAccount.name}</span>
 
-            <span className="text-zinc-500">Email:</span>
+            <span className="text-zinc-500">البريد الإلكتروني:</span>
             <span className="text-zinc-300">{selectedAccount.email}</span>
 
-            <span className="text-zinc-500">Role:</span>
+            <span className="text-zinc-500">الدور:</span>
             <span className="rounded bg-zinc-800 px-2 text-zinc-300">{selectedAccount.role}</span>
 
-            <span className="text-zinc-500">Joined:</span>
+            <span className="text-zinc-500">تاريخ الانضمام:</span>
             <span className="text-zinc-300">{selectedAccount.joinedAt.toLocaleDateString()}</span>
           </div>
         </div>
         <Select
           value={selectedAccount.id}
           onValueChange={value => {
-            // Find the account that matches the selected ID
+            // العثور على الحساب الذي يتطابق مع المعرف المحدد
             if (value === primeAccount.id) {
               setSelectedAccount(primeAccount);
             } else if (value === secondaryPrimeAccount.id) {
@@ -69,7 +69,7 @@ export default function DebugLayout() {
           }}
         >
           <SelectTrigger className="border-none bg-black text-white ring-0">
-            <SelectValue placeholder="Select an account" />
+            <SelectValue placeholder="اختر حسابًا" />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value={primeAccount.id}>{primeAccount.name}</SelectItem>

@@ -2,8 +2,9 @@
 
 import { useSelectionStore } from '@/store/selection';
 import Section from '@/enums/selection';
-import Chats from './selectable/chats';
 import Options from './options';
+import Chats from './selectable/chats';
+import Contacts from './selectable/contacts';
 import Settings from './selectable/settings';
 import ChatContainer from '@/components/chats/container/ChatContainer';
 import { fakeRooms } from '@/lib/debug/fake';
@@ -25,6 +26,7 @@ export default function Home() {
       <div className="m-12 flex h-full rounded-xl">
         <Options />
         {selectedSection === Section.Chats && <Chats />}
+        {selectedSection === Section.Contacts && <Contacts />}
         {selectedSection === Section.Settings && <Settings />}
         <ChatContainer account={selectedAccount} room={fakeRooms[0]} />
       </div>
