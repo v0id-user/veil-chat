@@ -31,11 +31,13 @@ interface ChatContainerHeaderProps {
 
 export default function ChatContainerHeader({ account, room }: ChatContainerHeaderProps) {
   return (
-    <div className="solid flex h-fit w-full items-center justify-between rounded-tl-xl border border-l-black border-t-black bg-[#F5F0F0] p-3">
+    <div className="flex h-fit w-full items-center justify-between rounded-tl-xl border border-l-black border-t-black bg-[#F5F0F0] p-3">
       <div className="flex w-full items-center justify-between">
         <NameAvatar name={account.name} avatar={account.avatarLink} />
+        <label className="rounded border border-red-500 bg-red-200 p-1 text-xs text-black/70">
+          DEBUG: Room ID: {room.id} | TODO: Use the room object
+        </label>
         <OptionsAndCalls />
-        <label className="absolute">Use me: room object{room.name}</label>
       </div>
     </div>
   );

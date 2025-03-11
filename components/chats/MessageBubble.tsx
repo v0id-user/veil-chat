@@ -10,7 +10,7 @@ export default function MessageBubble({ message, isSender }: MessageBubbleProps)
   return (
     <div className={`flex ${isSender ? 'justify-start' : 'justify-end'} mb-2`}>
       <div
-        className={`solid flex max-w-[70%] items-end gap-2 rounded-xl border border-black px-4 py-2 text-black ${
+        className={`flex max-w-[70%] items-end gap-2 rounded-xl border border-black px-4 py-2 text-black ${
           isSender ? 'rounded-br-none bg-[#DC0E11]' : 'rounded-bl-none bg-white'
         }`}
       >
