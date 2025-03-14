@@ -2,7 +2,7 @@ import SearchBar from '@/components/utils/SearchBar';
 import ThreeDots from '@/public/icons/dots-three-outline-vertical.svg';
 import UserPlus from '@/public/icons/user-plus.svg';
 import Tab from '@/components/utils/Tab';
-import ChatItem from '@/components/chats/RoomItem';
+import { RoomItem } from '@/components/chats';
 import Link from 'next/link';
 import Lock from '@/public/icons/lock-16px.svg';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
@@ -45,7 +45,7 @@ export default function ChatsPage() {
       </div>
       <div className="mt-4 flex w-full flex-col gap-2">
         {fakeRooms.map(chat => (
-          <ChatItem key={chat.id} {...chat} />
+          <RoomItem key={chat.id} {...chat} />
         ))}
       </div>
       <span className="mt-4 flex items-center justify-center gap-1 text-center text-xs text-[#969696]">

@@ -2,14 +2,18 @@
  * This is used to managed selected UI section
  */
 import { create } from 'zustand';
-import Section from '@/enums/selection';
+import Section, { SECTIONS, SectionType } from '@/enums/selection';
 
 interface SelectionStore {
-  selectedSection: Section;
-  setSelectedSection: (section: Section) => void;
+  selectedSection: SectionType;
+  setSelectedSection: (section: SectionType) => void;
 }
 
 export const useSelectionStore = create<SelectionStore>(set => ({
-  selectedSection: Section.Chats,
-  setSelectedSection: section => set({ selectedSection: section }),
+  selectedSection: SECTIONS.CHATS,
+  setSelectedSection: section => {
+    if (Section(section)) {
+      set({ selectedSection: section });
+    }
+  },
 }));

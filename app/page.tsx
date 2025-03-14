@@ -1,7 +1,7 @@
 'use client';
 
 import { useSelectionStore } from '@/store/selection';
-import Section from '@/enums/selection';
+import { SECTIONS } from '@/enums/selection';
 import Options from './options';
 import Chats from './selectable/chats';
 import Contacts from './selectable/contacts';
@@ -9,6 +9,7 @@ import Settings from './selectable/settings';
 import ChatContainer from '@/components/chats/container/ChatContainer';
 import { fakeRooms } from '@/lib/debug/fake';
 import { useDebugStore } from '@/store/debug';
+
 const ColorBanner = () => {
   return (
     <>
@@ -23,11 +24,11 @@ export default function Home() {
   return (
     <main className="flex h-screen flex-col">
       <ColorBanner />
-      <div className="m-12 flex h-full rounded-xl">
+      <div className="m-12 flex h-full max-w-[calc(100vw-6rem)] overflow-hidden rounded-xl">
         <Options />
-        {selectedSection === Section.Chats && <Chats />}
-        {selectedSection === Section.Contacts && <Contacts />}
-        {selectedSection === Section.Settings && <Settings />}
+        {selectedSection === SECTIONS.CHATS && <Chats />}
+        {selectedSection === SECTIONS.CONTACTS && <Contacts />}
+        {selectedSection === SECTIONS.SETTINGS && <Settings />}
         <ChatContainer account={selectedAccount} room={fakeRooms[0]} />
       </div>
     </main>

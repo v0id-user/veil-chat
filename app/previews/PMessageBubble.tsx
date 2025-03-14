@@ -1,4 +1,4 @@
-import MessageBubble from '@/components/chats/MessageBubble';
+import { MessageBubble } from '@/components/chats';
 import { fakeUsers } from '@/lib/debug/fake';
 
 export default function PMessageBubble() {

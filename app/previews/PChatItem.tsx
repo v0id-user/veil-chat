@@ -1,4 +1,4 @@
-import ChatItem from '@/components/chats/RoomItem';
+import { RoomItem } from '@/components/chats';
 import { fakeRooms } from '@/lib/debug/fake';
 
 export default function PChatItem() {
@@ -7,7 +7,7 @@ export default function PChatItem() {
   return (
     <div className="flex w-full flex-col gap-2">
       {chats.map(chat => (
-        <ChatItem key={chat.id} {...chat} />
+        <RoomItem key={chat.id} {...chat} />
       ))}
     </div>
   );
